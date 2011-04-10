@@ -1,0 +1,101 @@
+<HTML><HEAD><TITLE>CASPER.EXAMPLE</TITLE></HEAD><BODY><PRE>
+;;------------------------------------------------------------------------------
+;; 
+;; File:    CASPER.EXAMPLE 
+;; Created: 11/21/94
+;; Author:  Will Fitzgerald
+;; 
+;; Description: Example run of the Micro-Casper program
+;; 
+;;------------------------------------------------------------------------------
+
+
+? (casper)
+
+CSR: Hello, May I help you?
+Customer: I've rung up to complain about my water.
+
+CSR? What's your name, please?
+
+Choose the best choice (0 for none):
+ 1. 1.00 ASK-NAME What is your name?
+ 2. 0.69 ASK-NAME/ADDRESS What is your name and address, please?
+ 3. 0.37 ASK-BITS-DESCRIPTION What do the bits look like?
+ 4. 0.29 ASK-PROBLEM-DESCRIPTION What seems to be the problem?
+ 5. 0.29 ASK-ADDRESS What is your address?
+ 6. 0.20 ASK-BITS-COLOUR What colour are the bits?
+CSR? 1
+
+CSR: What is your name?
+Customer: My name is Mr. Smith. Ronald Smith.
+
+CSR? Where do you live, Mr. Smith?
+
+Choose the best choice (0 for none):
+ 1. 0.78 ASK-ADDRESS What is your address?
+ 2. 0.56 ASK-NAME/ADDRESS What is your name and address, please?
+CSR? 1
+
+CSR: What is your address?
+Customer: I live at The Grange on Caledonian Drive in Eccles.
+
+CSR? Could you please describe the bits to me?
+
+Choose the best choice (0 for none):
+ 1. 1.00 ASK-BITS-DESCRIPTION What do the bits look like?
+ 2. 1.00 ASK-PROBLEM-DESCRIPTION What seems to be the problem?
+ 3. 0.57 ASK-BITS-COLOUR What colour are the bits?
+ 4. 0.42 ASK-PROBLEM-DURATION How long have you had the problem?
+ 5. 0.36 ASK-ADDRESS What is your address?
+ 6. 0.36 ASK-NAME What is your name?
+ 7. 0.27 ASK-NAME/ADDRESS What is your name and address, please?
+CSR? 1
+
+CSR: What do the bits look like?
+Customer: The bits are black.
+
+CSR? How long have the bits been bothering you?
+
+Choose the best choice (0 for none):
+ 1. 1.00 ASK-PROBLEM-DURATION How long have you had the problem?
+ 2. 0.61 ASK-PROBLEM-DESCRIPTION What seems to be the problem?
+ 3. 0.53 ASK-BITS-DESCRIPTION What do the bits look like?
+ 4. 0.27 ASK-BITS-COLOUR What colour are the bits?
+ 5. 0.22 ASK-BLACK-BITS Do you have black bits in your water?
+CSR? 1
+
+CSR: How long have you had the problem?
+Customer: I just noticed the bits today.
+
+CSR? Have you seen any fire fighters around?
+
+Choose the best choice (0 for none):
+ 1. 0.73 ASK-FIRE-BRIGADE Have you seen the fire brigade in the area?
+ 2. 0.42 TELL-FIRE-BRIGADE-SEDIMENT The fire brigade stirred up some sediment
+CSR? 1
+
+CSR: Have you seen the fire brigade in the area?
+Customer: The fire brigade were here earlier working on the hydrants.
+
+CSR? i think the problem is that the fire brigade stirred up some sediment whilst working on the pipes
+
+Choose the best choice (0 for none):
+ 1. 0.93 TELL-FIRE-BRIGADE-SEDIMENT The fire brigade stirred up some sediment
+ 2. 0.60 ASK-PROBLEM-DESCRIPTION What seems to be the problem?
+ 3. 0.39 ASK-PROBLEM-DURATION How long have you had the problem?
+ 4. 0.27 ASK-FIRE-BRIGADE Have you seen the fire brigade in the area?
+CSR? 1
+
+CSR: The fire brigade stirred up some sediment
+Customer: Is my water safe to drink?
+
+CSR? yes, it's safe.
+
+Choose the best choice (0 for none):
+ 1. 0.76 TELL-WATER-SAFE Your water is perfectly safe to drink.
+CSR? 1
+
+CSR: Your water is perfectly safe to drink.
+Customer: Thank you for your help. Good-bye!
+
+</BODY></PRE></HTML>

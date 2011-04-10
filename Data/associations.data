@@ -1,0 +1,19 @@
+;;; The index concept sets
+
+(def-assoc greet-customer m-greet)
+(def-assoc ask-name m-description m-name)
+(def-assoc ask-address m-description m-address)
+(def-assoc ask-name/address m-description m-address m-name)
+(def-assoc ask-problem-description m-description m-problem)
+(def-assoc ask-bits-description m-description m-water-bits)
+(def-assoc ask-problem-duration m-problem m-duration)
+(def-assoc ask-bits-colour m-description m-water-bits m-colour)
+(def-assoc ask-fire-brigade m-see m-fire-brigade m-neighbourhood)
+(def-assoc tell-water-lead m-water m-lead)
+(def-assoc tell-fire-brigade-sediment  m-fire-brigade m-sediment)
+(def-assoc tell-water-safe m-water m-safe)
+
+
+(def-assoc ask-black-bits m-water m-contain m-black m-water-bits)
+(def-assoc ask-black-bits m-water m-contain m-black m-water-bits m-black-water-bits)
+

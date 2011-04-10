@@ -1,0 +1,76 @@
+(defparameter +code-dir+ "ICP:Code:")
+(defparameter +data-dir+ "ICP:Data:")
+
+;;; package definitions
+
+(eval-when (load eval compile)
+  (unless (find-package :icp)
+    (make-package :icp))
+
+  (unless (find-package :frames)
+    (make-package :frames))
+
+  (unless (find-package :dmap)
+    (make-package :dmap))
+
+  (unless (find-package :log)
+    (make-package :log))
+  
+  (unless (find-package :casper)
+    (make-package :casper)))
+
+(use-package '( :log :dmap :frames :icp :casper))
+
+(defun probe-warning (pathname)
+  (if (probe-file pathname)
+    (format t "~%Found ~A" pathname)
+    (format t "~%~A not found." pathname)))
+
+
+(defun sls (&key directory subdirectory filenames (extension "lisp")
+                 test)
+  (let ((path (if subdirectory
+                (format nil "~A~A" directory subdirectory) directory)))
+  (loop for filename in filenames
+        for comp = (format nil "~A~A.~A" path filename extension)
+        do (if test (probe-warning comp) (load comp)))))
+
+(defun load-utilities (&optional test)
+  (sls :directory  +code-dir+
+       :subdirectory "Utilities:"
+       :filenames '("tables"
+                    "logging"
+                    "toList")
+       :test test))
+       
+(defun load-icp (&optional test)
+  (sls :directory  +code-dir+
+       :filenames '("micro-frame" 
+                    "micro-dmap"
+                    "micro-icp"
+                    "micro-casper") 
+       :test test)
+  )
+
+
+(defun load-data (&optional test)
+  (sls :directory  +data-dir+
+       :filenames '("micro-casper" 
+                    "frames"
+                    "phrases"
+                    "associations" )
+       :extension "data"
+       :test test))
+
+(defun load-source (&optional test)
+  (load-utilities test)
+  (load-icp test))
+
+
+       
+(defun setup ()
+  (load-source)
+  (load-data))
+
+(format t "~%Run (SETUP) to setup everything.")
+
